@@ -18,13 +18,13 @@ public:
 
     int getClaveMateria();
 
-    bool operator==(const Materia& otra) const;
-    bool operator!=(const Materia& otra) const;
-    bool operator<(const Materia& otra) const;
-    bool operator>(const Materia& otra) const;
+    bool operator==(const Materia& a) const;
+    bool operator!=(const Materia& a) const;
+    bool operator<(const Materia& a) const;
+    bool operator>(const Materia& a) const;
     friend istream& operator>>(istream& in, Materia& materia);
     friend ostream& operator<<(ostream& out, const Materia& materia);
-    Materia operator+(const Materia& otra) const;
+    Materia operator+(const Materia& a) const;
 };
 
 Materia::Materia(int a, string b, string c, string d)
@@ -58,24 +58,24 @@ int Materia::getClaveMateria()
     return Clave;
 }
 
-bool Materia::operator==(const Materia& otra) const
+bool Materia::operator==(const Materia& a) const
 {
-    return (Clave == otra.Clave);
+    return (Clave == a.Clave);
 }
 
-bool Materia::operator!=(const Materia& otra) const
+bool Materia::operator!=(const Materia& a) const
 {
-    return !(*this == otra);
+    return !(*this == a);
 }
 
-bool Materia::operator<(const Materia& otra) const
+bool Materia::operator<(const Materia& a) const
 {
-    return (Clave < otra.Clave);
+    return (Clave < a.Clave);
 }
 
-bool Materia::operator>(const Materia& otra) const
+bool Materia::operator>(const Materia& a) const
 {
-    return (Clave > otra.Clave);
+    return (Clave > a.Clave);
 }
 
 istream& operator>>(istream& in, Materia& materia)
@@ -93,9 +93,9 @@ ostream& operator<<(ostream& out, const Materia& materia)
     return out;
 }
 
-Materia Materia::operator+(const Materia& otra) const
+Materia Materia::operator+(const Materia& a) const
 {
-    string nuevoNombre = this->Nombre + " + " + otra.Nombre;
+    string nuevoNombre = this->Nombre + " + " + a.Nombre;
     return Materia(Clave, nuevoNombre, ProfesorTit, LibroTexto);
 }
 
